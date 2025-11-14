@@ -1,0 +1,46 @@
+package com.fdp.tracker.controller;
+
+import com.fdp.tracker.model.Module;
+import com.fdp.tracker.service.ModuleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/fdp/modules") 
+// IMPORTANT: Replace 'http://localhost:8080' with your actual frontend domain (e.g., GitHub Pages URL)
+@CrossOrigin(origins = "http://localhost:8080") 
+public class ModuleController {
+
+    @Autowired
+    private ModuleService moduleService;
+
+    /**
+     * Endpoint to get all active FDP modules (GET /api/fdp/modules/active)
+     * The Frontend calls this to populate the registration list.
+     */
+    @GetMapping("/active")
+    public List<Module> getActiveModules() {
+        return moduleService.getAllActiveModules();
+    }
+    
+    /**
+     * Endpoint for faculty to register for a module (POST /api/fdp/modules/register)
+     * In a real app, this would take the Faculty ID and Module ID.
+     */
+    @PostMapping("/register")
+    public String registerForModule(@RequestBody RegistrationRequest request) {
+        // Here, the service layer would check availability and save the registration record
+        System.out.println("Registration request received for Module ID: " + request.getModuleId());
+        return "Registration for Module ID " + request.getModuleId() + " processed successfully.";
+    }
+}
+
+// Simple class to represent the request body for registration
+class RegistrationRequest {
+    private Long facultyId;
+    private Long moduleId;
+    public Long getFacultyId() { return facultyId; }
+    public Long getModuleId() { return moduleId; }
+    // Setters omitted
+}
