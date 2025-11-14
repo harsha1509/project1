@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Distributed RMI Calculator</title> [cite: 57]
+<link rel="stylesheet" href="styles.css"> [cite: 58]
+</head>
+<body>
+<div class="container"> [cite: 61]
+<h1>Distributed Calculator</h1> [cite: 62]
+<input id="num1" type="number" placeholder="Enter Number 1"> [cite: 63]
+<input id="num2" type="number" placeholder="Enter Number 2"> [cite: 64]
+<div class="buttons"> [cite: 65]
+<button onclick="calculate('add')">Add</button> [cite: 66]
+<button onclick="calculate('subtract')">Subtract</button> [cite: 67]
+<button onclick="calculate('multiply')">Multiply</button> [cite: 68]
+<button onclick="calculate('divide')">Divide</button> [cite: 69]
+</div> [cite: 70]
+<h3 id="result">Result:</h3> [cite: 71]
+</div> [cite: 72]
+<script src="script.js"></script> [cite: 73]
+</body> [cite: 74]
+</html> [cite: 75]
